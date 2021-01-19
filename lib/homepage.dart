@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 import 'package:rx_value_notifier_sample/custom_class.dart';
 
 class Homepage extends StatefulWidget {
@@ -16,11 +17,10 @@ class _HomepageState extends State<Homepage> {
         title: Text('Sample App'),
       ),
       body: Center(
-        child: ValueListenableBuilder(
-          valueListenable: controller.counter,
-          builder: (BuildContext context, value, Widget child) {
+        child: RxBuilder(
+          builder: (_) {
             return Text(
-              '$value',
+              '${controller.counter}',
               style: Theme.of(context).textTheme.headline4,
             );
           },

@@ -1,9 +1,11 @@
-import 'package:flutter/foundation.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 
 class CustomClass {
-  final counter = ValueNotifier<int>(0);
+  final _counter = RxNotifier<int>(0);
+
+  int get counter => this._counter.value;
 
   void increment() {
-    counter.value++;
+    _counter.value++;
   }
 }
